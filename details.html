@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Détails du Voyage - Morocco Immersion</title>
+    <title>Tour Details</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Volkhov:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <script>
         tailwind.config = {
             theme: {
@@ -22,191 +21,102 @@
 </head>
 <body class="bg-gray-50 font-sans text-gray-600 antialiased">
 
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-xl md:text-2xl font-serif font-bold text-navy">
-                Morocco<span class="text-orange">Immersion</span>
+    <nav class="absolute top-0 left-0 w-full z-50 py-6 border-b border-white/10 bg-black/20 backdrop-blur-sm">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 bg-orange text-white rounded-tr-xl rounded-bl-xl flex items-center justify-center text-2xl shadow-lg"><i class="fas fa-compass"></i></div>
+                <div class="flex flex-col"><span class="text-2xl font-serif font-bold text-white leading-none">Heritage</span><span class="text-xs font-bold text-yellow tracking-[0.2em] leading-none mt-1">ATLAS NOMADS</span></div>
             </a>
-
-            <div class="hidden md:flex gap-6 items-center font-medium text-navy">
-                <a href="index.html" class="hover:text-orange transition">Accueil</a>
-                <a href="index.html#tours" class="hover:text-orange transition">Autres Circuits</a>
-                <a href="index.html#contact" class="bg-navy text-white px-5 py-2 rounded-lg text-sm hover:bg-orange transition">Contact</a>
+            <div class="hidden lg:flex gap-8 font-medium text-white items-center">
+                <a href="index.html" class="hover:text-yellow transition">Home</a>
+                <a href="index.html#tours" class="hover:text-yellow transition">Tours</a>
+                <a href="index.html#contact" class="bg-white text-navy px-6 py-2 rounded-full font-bold shadow-lg hover:bg-orange hover:text-white transition">Contact Us</a>
             </div>
-
-            <button id="menu-btn" class="md:hidden text-navy text-2xl focus:outline-none">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-
-        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100 hidden flex-col p-6 gap-4 text-center md:hidden">
-            <a href="index.html" class="block py-2 text-navy font-bold hover:text-orange">Accueil</a>
-            <a href="index.html#tours" class="block py-2 text-navy font-bold hover:text-orange">Autres Circuits</a>
-            <a href="index.html#contact" class="block py-3 bg-orange text-white rounded-xl font-bold">Contactez-nous</a>
+            <button id="menu-btn" class="lg:hidden text-white text-3xl focus:outline-none"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
-    <div id="details-content" class="min-h-screen pb-20">
-        <div class="flex flex-col justify-center items-center h-[60vh]">
-            <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-orange border-solid"></div>
-            <p class="mt-4 text-gray-400">Chargement du voyage...</p>
-        </div>
+    <div id="mobile-menu" class="fixed inset-0 bg-navy/95 z-[60] hidden flex-col justify-center items-center gap-8 text-xl font-bold text-white">
+        <button id="close-menu" class="absolute top-6 right-6 text-3xl"><i class="fas fa-times"></i></button>
+        <a href="index.html" class="hover:text-orange">Home</a>
+        <a href="index.html#tours" class="hover:text-orange">Tours</a>
+        <a href="index.html#contact" class="bg-orange text-white px-8 py-3 rounded-xl">Contact</a>
     </div>
 
-    <footer class="bg-navy text-white py-8 text-center mt-auto">
-        <p class="text-sm opacity-60">&copy; 2026 Morocco Immersion Tours.</p>
-    </footer>
+    <div id="details-content" class="min-h-screen pb-20">
+        <div class="flex flex-col justify-center items-center h-screen"><div class="animate-spin rounded-full h-16 w-16 border-t-4 border-orange border-solid"></div></div>
+    </div>
+
+    <footer class="bg-navy text-white py-8 text-center mt-auto"><p class="text-sm opacity-60">&copy; 2026 Heritage Atlas Nomads.</p></footer>
 
     <script src="js/data.js"></script>
     <script>
-        // 1. Mobile Menu Logic
-        const btn = document.getElementById('menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-            menu.classList.toggle('flex');
-            const icon = btn.querySelector('i');
-            if (menu.classList.contains('hidden')) {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            } else {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            }
-        });
+        // Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        function toggleMenu() { mobileMenu.classList.toggle('hidden'); mobileMenu.classList.toggle('flex'); }
+        menuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
 
-        // 2. Logic d'affichage des détails
+        // Load Content
         const params = new URLSearchParams(window.location.search);
         const id = params.get('id');
         const tour = toursData.find(t => t.id == id);
         const container = document.getElementById('details-content');
 
         if (tour) {
-            // Création de l'itinéraire (Timeline Style)
             let itineraryHTML = '';
-            if(tour.itinerary && tour.itinerary.length > 0) {
+            if (tour.itinerary && typeof tour.itinerary[0] === 'object') {
                 tour.itinerary.forEach((day, index) => {
                     itineraryHTML += `
-                        <div class="flex gap-4 mb-8 relative group">
-                            ${index !== tour.itinerary.length - 1 ? '<div class="absolute left-[19px] top-10 bottom-[-32px] w-0.5 bg-gray-200 group-hover:bg-orange/30 transition"></div>' : ''}
-                            
-                            <div class="shrink-0 relative z-10">
-                                <div class="w-10 h-10 bg-orange text-white rounded-full flex items-center justify-center font-bold shadow-md ring-4 ring-white">
-                                    ${index + 1}
+                        <div class="relative pl-8 sm:pl-12 py-6 group">
+                            <div class="absolute left-0 sm:left-2 top-0 bottom-0 w-1 bg-gray-200 group-last:bottom-auto group-last:h-10"></div>
+                            <div class="absolute left-[-4px] sm:left-[4px] top-6 w-3 h-3 bg-white border-4 border-orange rounded-full z-10"></div>
+                            <div class="flex flex-col lg:flex-row gap-6">
+                                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex-1 hover:shadow-md transition">
+                                    <div class="flex items-center gap-3 mb-2"><span class="bg-navy text-white px-3 py-1 rounded-lg text-xs font-bold uppercase">${day.day}</span><h4 class="text-lg font-bold text-navy">${day.title}</h4></div>
+                                    <p class="text-gray-600 text-sm leading-relaxed">${day.desc}</p>
                                 </div>
+                                <div class="w-full lg:w-48 shrink-0"><img src="${day.image}" class="w-full h-40 lg:h-32 object-cover rounded-xl shadow-sm" onerror="this.src='https://via.placeholder.com/150'"></div>
                             </div>
-                            
-                            <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 w-full hover:shadow-md transition cursor-default">
-                                <h4 class="font-bold text-navy text-lg mb-1">Jour ${index + 1}</h4>
-                                <p class="text-gray-600 text-sm leading-relaxed">${day}</p>
-                            </div>
-                        </div>
-                    `;
-                });
-            } else {
-                itineraryHTML = '<p class="text-gray-500 italic">Itinéraire détaillé sur demande.</p>';
-            }
-
-            // Highlights Tags
-            let highlightsHTML = '';
-            if(tour.highlights) {
-                tour.highlights.forEach(tag => {
-                    highlightsHTML += `<span class="bg-yellow/10 text-yellow px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">${tag}</span>`;
+                        </div>`;
                 });
             }
 
-            // Injection du contenu
+            let highlightsHTML = tour.highlights.map(h => `<span class="bg-white/20 backdrop-blur-md text-white border border-white/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">${h}</span>`).join('');
+
             container.innerHTML = `
-                <div class="relative h-[50vh] md:h-[60vh] w-full">
-                    <img src="${tour.image}" onerror="this.src='https://via.placeholder.com/1200x600'" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/40 to-transparent flex flex-col justify-end pb-12 px-6">
-                        <div class="container mx-auto">
-                            <div class="flex flex-wrap gap-3 mb-4">
-                                <span class="bg-orange text-white px-4 py-1 rounded-lg text-sm font-bold uppercase shadow-lg">Privé</span>
-                                <span class="bg-white text-navy px-4 py-1 rounded-lg text-sm font-bold shadow-lg flex items-center gap-2"><i class="fas fa-clock"></i> ${tour.duration}</span>
+                <div class="relative h-[60vh] w-full">
+                    <img src="${tour.image}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/1920x1080'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/40 to-black/30"></div>
+                    <div class="absolute inset-0 flex flex-col justify-end pb-16 px-6">
+                        <div class="max-w-7xl mx-auto w-full">
+                            <div class="flex flex-wrap gap-3 mb-6">${highlightsHTML}</div>
+                            <h1 class="text-4xl md:text-6xl font-serif font-bold text-white mb-4 leading-tight">${tour.title}</h1>
+                            <div class="flex items-center gap-6 text-gray-200 text-lg">
+                                <span class="flex items-center gap-2"><i class="fas fa-clock text-yellow"></i> ${tour.duration}</span>
+                                <span class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-yellow"></i> ${tour.location}</span>
                             </div>
-                            <h1 class="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-2 leading-tight">${tour.title}</h1>
-                            <p class="text-gray-300 text-lg flex items-center gap-2"><i class="fas fa-map-marker-alt text-yellow"></i> ${tour.location}</p>
                         </div>
                     </div>
                 </div>
-
-                <div class="container mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
-                    
-                    <div class="lg:col-span-2 space-y-10">
-                        
-                        <div class="bg-white p-8 rounded-[2rem] shadow-xl border border-gray-50">
-                            <div class="flex flex-wrap gap-3 mb-6">
-                                ${highlightsHTML}
-                            </div>
-                            <h2 class="text-2xl font-serif font-bold text-navy mb-4">À propos de ce voyage</h2>
-                            <p class="text-gray-600 leading-relaxed text-lg">${tour.desc}</p>
-                        </div>
-
-                        <div>
-                            <h2 class="text-2xl font-serif font-bold text-navy mb-8 flex items-center gap-3">
-                                <span class="w-8 h-8 bg-navy text-white rounded-lg flex items-center justify-center text-sm"><i class="fas fa-route"></i></span>
-                                Programme Détaillé
-                            </h2>
-                            <div class="pl-2">
-                                ${itineraryHTML}
-                            </div>
-                        </div>
+                <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-3 gap-12">
+                    <div class="lg:col-span-2 space-y-12">
+                        <div><h3 class="text-2xl font-serif font-bold text-navy mb-4">Overview</h3><p class="text-gray-600 text-lg leading-relaxed">${tour.desc}</p></div>
+                        <div><h3 class="text-2xl font-serif font-bold text-navy mb-8 border-b pb-4">Daily Itinerary</h3><div class="space-y-2">${itineraryHTML}</div></div>
                     </div>
-
                     <div class="lg:col-span-1">
-                        <div class="bg-white p-8 rounded-[2.5rem] shadow-2xl border-t-8 border-orange sticky top-24">
-                            <div class="text-center mb-8">
-                                <p class="text-gray-400 text-sm font-bold uppercase tracking-widest mb-1">Prix Estimé</p>
-                                <div class="flex justify-center items-baseline gap-1">
-                                    <span class="text-4xl font-bold text-navy">${tour.price}</span>
-                                </div>
-                                <p class="text-xs text-gray-400 mt-2">Le prix varie selon la saison et le groupe</p>
-                            </div>
-
+                        <div class="bg-white p-8 rounded-[2rem] shadow-xl border border-gray-100 sticky top-32">
+                            <div class="text-center mb-8"><p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">Total Duration</p><p class="text-3xl font-bold text-navy">${tour.duration}</p></div>
                             <div class="space-y-4">
-                                <a href="https://wa.me/212600000000?text=Bonjour, je suis intéressé par le voyage : ${tour.title}" target="_blank" class="flex items-center justify-center gap-3 w-full bg-[#25D366] text-white font-bold py-4 rounded-xl hover:bg-[#20b858] transition shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                                    <i class="fab fa-whatsapp text-2xl"></i> 
-                                    <span>Réserver via WhatsApp</span>
-                                </a>
-                                
-                                <div class="relative flex py-2 items-center">
-                                    <div class="flex-grow border-t border-gray-200"></div>
-                                    <span class="flex-shrink-0 mx-4 text-gray-400 text-sm">OU</span>
-                                    <div class="flex-grow border-t border-gray-200"></div>
-                                </div>
-
-                                <a href="mailto:contact@moroccoimmersion.com?subject=Demande pour : ${tour.title}" class="flex items-center justify-center gap-3 w-full bg-navy text-white font-bold py-4 rounded-xl hover:bg-opacity-90 transition shadow-md">
-                                    <i class="far fa-envelope text-xl"></i>
-                                    <span>Demander un Devis</span>
-                                </a>
+                                <a href="https://wa.me/212600000000?text=I am interested in: ${tour.title}" target="_blank" class="flex items-center justify-center gap-3 w-full bg-[#25D366] text-white font-bold py-4 rounded-xl hover:shadow-lg transition transform hover:-translate-y-1"><i class="fab fa-whatsapp text-2xl"></i> <span>WhatsApp Us</span></a>
+                                <a href="mailto:contact@heritageatlas.com?subject=Quote Request: ${tour.title}" class="flex items-center justify-center gap-3 w-full bg-navy text-white font-bold py-4 rounded-xl hover:shadow-lg transition transform hover:-translate-y-1"><i class="far fa-envelope text-xl"></i> <span>Request Quote</span></a>
                             </div>
-
-                            <div class="mt-8 bg-orange/5 p-4 rounded-xl border border-orange/10">
-                                <h4 class="font-bold text-navy text-sm mb-2"><i class="fas fa-info-circle text-orange mr-1"></i> Inclus :</h4>
-                                <ul class="text-sm text-gray-600 space-y-1">
-                                    <li>• Véhicule 4x4 privé & Carburant</li>
-                                    <li>• Chauffeur/Guide Expert</li>
-                                    <li>• Hébergements (Riads/Bivouacs)</li>
-                                    <li>• Petits-déjeuners & Dîners</li>
-                                </ul>
-                            </div>
+                            <div class="mt-8 pt-6 border-t border-gray-100"><h4 class="font-bold text-navy text-sm mb-4">Included in this tour:</h4><ul class="text-sm text-gray-500 space-y-3"><li class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i> Private 4x4 Transport</li><li class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i> Luxury Camp / Riad</li><li class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i> Breakfast & Dinner</li><li class="flex items-center gap-3"><i class="fas fa-check-circle text-green-500"></i> English Speaking Driver</li></ul></div>
                         </div>
                     </div>
-
-                </div>
-            `;
-        } else {
-            // Page 404 (Tour not found)
-            container.innerHTML = `
-                <div class="flex flex-col items-center justify-center h-[60vh] text-center px-6">
-                    <div class="text-6xl text-gray-300 mb-4"><i class="fas fa-search"></i></div>
-                    <h2 class="text-3xl font-bold text-navy mb-2">Voyage introuvable</h2>
-                    <p class="text-gray-500 mb-8">Désolé, ce circuit n'existe pas ou a été retiré.</p>
-                    <a href="index.html" class="bg-orange text-white px-8 py-3 rounded-xl font-bold shadow-lg hover:bg-red-600 transition">Retour à l'accueil</a>
-                </div>
-            `;
+                </div>`;
         }
     </script>
 </body>
