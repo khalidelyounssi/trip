@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morocco Immersion - Voyages Authentiques</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Volkhov:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { orange: '#DF6951', navy: '#181E4B', yellow: '#F1A501', cream: '#FFF1DA' },
+                    fontFamily: { sans: ['Poppins'], serif: ['Volkhov'] },
+                    borderRadius: { '4xl': '2.5rem' }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-gray-600 font-sans overflow-x-hidden">
+
+    <nav class="container mx-auto px-6 py-6 flex justify-between items-center relative z-50">
+        <a href="index.html" class="text-2xl md:text-3xl font-serif font-bold text-navy">Morocco<span class="text-orange">Immersion</span></a>
+        
+        <div class="hidden lg:flex gap-8 font-medium text-navy items-center">
+            <a href="#" class="hover:text-orange transition">Accueil</a>
+            <a href="#heritage" class="hover:text-orange transition">Culture</a>
+            <a href="#tours" class="hover:text-orange transition">Nos Circuits</a>
+            <a href="#philosophy" class="hover:text-orange transition">Philosophie</a>
+            <a href="#contact" class="bg-orange text-white px-6 py-2 rounded-lg font-bold shadow-lg hover:bg-red-600 transition">Contact</a>
+        </div>
+
+        <button id="menu-btn" class="lg:hidden text-navy text-3xl focus:outline-none"><i class="fas fa-bars"></i></button>
+    </nav>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 hidden flex-col justify-center items-center gap-8 text-xl font-bold text-navy">
+        <a href="#" class="mobile-link hover:text-orange">Accueil</a>
+        <a href="#heritage" class="mobile-link hover:text-orange">Culture</a>
+        <a href="#tours" class="mobile-link hover:text-orange">Nos Circuits</a>
+        <a href="#contact" class="mobile-link bg-orange text-white px-8 py-3 rounded-xl">Contact</a>
+    </div>
+
+    <header class="relative pt-10 pb-20 lg:pt-20 overflow-hidden">
+        <div class="absolute top-0 right-0 w-full lg:w-1/2 h-full bg-cream -z-10 lg:rounded-bl-[10rem] opacity-60"></div>
+
+        <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <div class="text-center lg:text-left order-2 lg:order-1">
+                <span class="text-orange font-bold uppercase tracking-widest text-sm bg-orange/10 px-4 py-2 rounded-full inline-block mb-6">Voyage Privé & Sur Mesure</span>
+                <h1 class="text-4xl md:text-6xl font-serif font-bold text-navy leading-tight mb-6">
+                    Découvrez le Maroc <br> à travers les yeux <br> <span class="text-orange">d'une famille locale</span>
+                </h1>
+                <p class="text-gray-500 text-lg mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                    Plus qu'un voyage, une immersion. Guidés par l'héritage de la dynastie Idrisside, nous vous ouvrons les portes du vrai Maroc, du thé à la menthe aux dunes du Sahara.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                    <a href="#tours" class="bg-yellow text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition w-full sm:w-auto">Voir les Circuits</a>
+                    <a href="#contact" class="flex items-center justify-center gap-3 text-gray-500 font-medium hover:text-navy transition w-full sm:w-auto mt-2 sm:mt-0">
+                        <span class="w-12 h-12 bg-orange rounded-full flex items-center justify-center text-white shadow-md"><i class="fas fa-phone"></i></span>
+                        Appelez-nous
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative order-1 lg:order-2 flex justify-center">
+                <img src="images/hero.jpg" onerror="this.src='https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=800'" class="w-full max-w-md h-[400px] lg:h-[600px] object-cover rounded-t-full rounded-b-[3rem] shadow-2xl z-10 relative">
+                
+                <div class="absolute top-10 right-0 lg:-right-10 text-orange/20 text-6xl z-0">
+                    <i class="fas fa-braille"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="heritage" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <p class="text-gray-500 font-bold uppercase tracking-widest">Immersion Totale</p>
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-navy mt-3">L'Âme du Maroc</h2>
+            </div>
+
+            <div class="flex flex-col lg:flex-row items-center gap-12 mb-20">
+                <div class="w-full lg:w-1/2">
+                    <img src="images/tour1.jpg" onerror="this.src='https://images.unsplash.com/photo-1590053096029-f53835f877d8?w=800'" class="rounded-[2rem] shadow-xl w-full h-[400px] object-cover">
+                </div>
+                <div class="w-full lg:w-1/2">
+                    <div class="w-16 h-16 bg-orange/10 rounded-full flex items-center justify-center text-orange text-2xl mb-6"><i class="fas fa-archway"></i></div>
+                    <h3 class="text-3xl font-serif font-bold text-navy mb-4">Architecture & Kasbahs</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Des mosaïques complexes (Zellige) des villes impériales aux forteresses en terre crue (Kasbahs) du sud. Nous vous emmenons visiter la <strong>Kasbah de Telouet</strong>, ancien siège de la famille Glaoui, et le ksar d'<strong>Ait Ben Haddou</strong>, classé à l'UNESCO. Découvrez l'ingéniosité de l'architecture berbère adaptée au climat.
+                    </p>
+                    <a href="#tours" class="text-orange font-bold hover:underline">Découvrir les Villes Impériales →</a>
+                </div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-12 mb-20">
+                <div class="w-full lg:w-1/2">
+                    <img src="images/tour2.jpg" onerror="this.src='https://images.unsplash.com/photo-1549488204-c820624f2284?w=800'" class="rounded-[2rem] shadow-xl w-full h-[400px] object-cover">
+                </div>
+                <div class="w-full lg:w-1/2">
+                    <div class="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center text-navy text-2xl mb-6"><i class="fas fa-history"></i></div>
+                    <h3 class="text-3xl font-serif font-bold text-navy mb-4">La Route du Sel & Les Idrissides</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Notre agence est fondée par <strong>Abdou Idrissi</strong>, descendant de la première dynastie du Maroc. Nous retraçons pour vous l'ancienne <strong>Route du Sel</strong>, où l'or blanc était échangé contre des épices. De Zagora à Tombouctou, chaque grain de sable raconte une histoire de commerce et de courage.
+                    </p>
+                    <a href="#tours" class="text-navy font-bold hover:underline">Suivre la Caravane →</a>
+                </div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="w-full lg:w-1/2">
+                    <img src="images/tour3.jpg" onerror="this.src='https://images.unsplash.com/photo-1512552277883-8a9d0a52df46?w=800'" class="rounded-[2rem] shadow-xl w-full h-[400px] object-cover">
+                </div>
+                <div class="w-full lg:w-1/2">
+                    <div class="w-16 h-16 bg-yellow/10 rounded-full flex items-center justify-center text-yellow text-2xl mb-6"><i class="fas fa-utensils"></i></div>
+                    <h3 class="text-3xl font-serif font-bold text-navy mb-4">Gastronomie & Hospitalité</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Le Maroc ne se visite pas, il se goûte. Participez à un cours de cuisine, savourez un <strong>Tajine</strong> préparé lentement sur le charbon, et partagez le rituel du thé à la menthe avec une famille locale dans la vallée des Roses. Une expérience sensorielle inoubliable.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tours" class="bg-gray-50 py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-orange font-bold uppercase tracking-widest">Inspiration</p>
+                <h2 class="text-4xl font-serif font-bold text-navy mt-2">Tous Nos Circuits</h2>
+                <p class="text-gray-500 mt-4 max-w-2xl mx-auto">Une sélection complète couvrant tout le royaume. Chaque itinéraire est 100% personnalisable.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="tours-container">
+                </div>
+        </div>
+    </section>
+
+    <section id="philosophy" class="py-20 bg-navy text-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-serif font-bold mb-12">Pourquoi "Morocco Immersion" ?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="p-6 border border-white/10 rounded-3xl hover:bg-white/5 transition">
+                    <div class="text-4xl text-yellow mb-4"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h4 class="text-xl font-bold mb-2">Machi Mouchkil</h4>
+                    <p class="text-gray-400 text-sm">"Pas de problème". Flexibilité totale durant votre voyage.</p>
+                </div>
+                <div class="p-6 border border-white/10 rounded-3xl hover:bg-white/5 transition">
+                    <div class="text-4xl text-orange mb-4"><i class="fas fa-users"></i></div>
+                    <h4 class="text-xl font-bold mb-2">Local & Familial</h4>
+                    <p class="text-gray-400 text-sm">Entreprise gérée par la famille Idrisside.</p>
+                </div>
+                <div class="p-6 border border-white/10 rounded-3xl hover:bg-white/5 transition">
+                    <div class="text-4xl text-green-400 mb-4"><i class="fas fa-tree"></i></div>
+                    <h4 class="text-xl font-bold mb-2">Responsable</h4>
+                    <p class="text-gray-400 text-sm">Nous soutenons l'économie locale et les artisans.</p>
+                </div>
+                <div class="p-6 border border-white/10 rounded-3xl hover:bg-white/5 transition">
+                    <div class="text-4xl text-blue-400 mb-4"><i class="fas fa-star"></i></div>
+                    <h4 class="text-xl font-bold mb-2">Expertise</h4>
+                    <p class="text-gray-400 text-sm">Plus de 20 ans d'expérience sur le terrain.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-white pt-20 pb-10">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+            <div>
+                <h2 class="text-4xl font-serif font-bold text-navy mb-6">Prêt pour l'aventure ?</h2>
+                <p class="text-gray-500 mb-8 text-lg">
+                    Contactez-nous pour un devis gratuit. Dites-nous ce que vous aimez, et nous créerons le voyage parfait pour vous.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-orange/10 rounded-full flex items-center justify-center text-orange"><i class="fas fa-envelope"></i></div>
+                        <span class="text-navy font-medium">contact@moroccoimmersion.com</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-orange/10 rounded-full flex items-center justify-center text-orange"><i class="fas fa-phone"></i></div>
+                        <span class="text-navy font-medium">+212 600 000 000</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-orange/10 rounded-full flex items-center justify-center text-orange"><i class="fas fa-map-marker-alt"></i></div>
+                        <span class="text-navy font-medium">Marrakech, Maroc</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-cream/50 p-8 rounded-[2.5rem]">
+                <form class="space-y-4">
+                    <input type="text" placeholder="Votre Nom" class="w-full p-4 rounded-xl border border-gray-200 focus:outline-none focus:border-orange">
+                    <input type="email" placeholder="Votre Email" class="w-full p-4 rounded-xl border border-gray-200 focus:outline-none focus:border-orange">
+                    <textarea rows="4" placeholder="Votre Message (Dates, nombre de personnes...)" class="w-full p-4 rounded-xl border border-gray-200 focus:outline-none focus:border-orange"></textarea>
+                    <button class="w-full bg-navy text-white font-bold py-4 rounded-xl hover:bg-orange transition">Envoyer ma demande</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="text-center border-t border-gray-100 pt-8 text-gray-400 text-sm">
+            &copy; 2026 Morocco Immersion Tours. Designed for Authentic Travel.
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script>
+        // 1. Mobile Menu Logic
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = btn.querySelector('i');
+        const links = document.querySelectorAll('.mobile-link');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+        });
+
+        // 2. Load Tours
+        const container = document.getElementById('tours-container');
+        toursData.forEach(tour => {
+            const card = `
+                <div class="bg-white rounded-[2rem] shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col h-full group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="${tour.image}" onerror="this.src='https://via.placeholder.com/400x300'" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-navy uppercase shadow-sm">
+                            ${tour.duration}
+                        </div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-navy mb-3 leading-tight group-hover:text-orange transition">${tour.title}</h3>
+                        <p class="text-gray-500 text-sm mb-6 line-clamp-3">${tour.desc}</p>
+                        
+                        <div class="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between">
+                            <span class="text-sm font-bold text-gray-400">Sur Devis</span>
+                            <a href="details.html?id=${tour.id}" class="text-orange font-bold hover:underline">Voir Programme →</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.innerHTML += card;
+        });
+    </script>
+</body>
+</html>
