@@ -6,7 +6,7 @@ const toursData = [
         price: "On Request",
         duration: "7 Days",
         location: "Marrakech ⇄ Sahara",
-        image: "/images/1.jpeg", 
+        image: "images/1.jpeg", 
         desc: "Immerse yourself in the history and culture of Morocco as you follow the trail of the Old Salt Caravan from Marrakech through the Valley of a Thousand Kasbahs to the great sand seas of the Sahara Desert.",
         highlights: ["Telouet Kasbah", "Ait Ben Haddou", "Merzouga Desert", "Todra Gorges"],
         itinerary: [
@@ -62,7 +62,7 @@ const toursData = [
         price: "On Request",
         duration: "12 Days",
         location: "Grand Loop",
-        image: "/images/2.jpeg",
+        image: "images/grand_cover.jpeg",
         desc: "We refer to this one as our BIG Morocco tour. You will visit the imperial cities, the mountains, the valleys, and the desert in this tour.",
         highlights: ["Imperial Cities", "Merzouga Desert", "Dades Valley", "Atlas Mountains"],
         itinerary: [
@@ -88,7 +88,7 @@ const toursData = [
         price: "On Request",
         duration: "14 Days",
         location: "Grand Tour + Chefchaouen",
-        image: "/images/11.jpeg",
+        image: "images/ultimate_cover.jpeg",
         desc: "Get ready for an unforgettable journey through Morocco’s imperial cities, ancient ruins, majestic mountains, and golden dunes. This immersive tour takes you from the vibrant energy of Casablanca to the blue-hued charm of Chefchaouen.",
         highlights: ["Chefchaouen", "Fes Immersion", "Merzouga Sahara", "Essaouira"],
         itinerary: [
@@ -116,7 +116,7 @@ const toursData = [
         price: "On Request",
         duration: "11 Days",
         location: "Marrakech -> Casablanca",
-        image: "/images/3.jpeg",
+        image: "images/complete_cover.jpeg",
         desc: "Immerse yourself in Morocco’s rich culture and diverse landscapes on this 11-day journey. From the buzzing souks of Marrakech to the tranquility of the Sahara, you’ll explore ancient medinas, sleep under the stars, and connect with local traditions.",
         highlights: ["Marrakech", "Sahara Desert", "Fes", "Chefchaouen"],
         itinerary: [
@@ -141,7 +141,7 @@ const toursData = [
         price: "On Request",
         duration: "10 Days",
         location: "Casablanca -> Marrakech",
-        image: "/images/5.jpeg",
+        image: "images/highlights_cover.jpeg",
         desc: "The 10 Day Morocco Highlights Immersion Tour takes you to the magical blue city of Chefchaouen, into the bustling Imperial Cites (Rabat, Marrakech, Meknes, & Fes), through the golden sands of the Sahara, and over the Middle and High Atlas Mountains. This tour is packed with the country’s most important landmarks.",
         highlights: ["Rabat", "Chefchaouen", "Fes", "Sahara", "Marrakech"],
         itinerary: [
@@ -165,7 +165,7 @@ const toursData = [
         price: "On Request",
         duration: "8 Days",
         location: "Marrakech ⇄ Sahara",
-        image: "/images/6.jpeg",
+        image: "images/south_cover.jpeg",
         desc: "This 8-day Morocco tour blends culture, nature, and adventure. Starting in Marrakech, you’ll explore historic sites and bustling souks before crossing the Atlas Mountains to Ouarzazate and the scenic Dades Valley. Highlights include Todgha Gorge, a camel trek into the Sahara, and a night in a luxury desert camp.",
         highlights: ["Marrakech", "Dades Valley", "Sahara Desert", "Ait Ben Haddou"],
         itinerary: [
@@ -187,7 +187,7 @@ const toursData = [
         price: "On Request",
         duration: "8 Days",
         location: "Tangier -> Marrakech",
-        image: "/images/7.jpeg",
+        image: "images/northsouth_cover.jpeg",
         desc: "This 8-day Morocco tour begins in the vibrant northern port city of Tangier and winds through the Blue City of Chefchaouen, the ancient ruins of Volubilis, and the imperial cities of Meknes and Fes. You’ll journey through mountain forests and Alpine villages, cross the Atlas Mountains, and trek by camel into the Sahara for a magical night under the stars.",
         highlights: ["Chefchaouen", "Fes", "Sahara", "Marrakech"],
         itinerary: [
@@ -209,7 +209,7 @@ const toursData = [
         price: "On Request",
         duration: "4 Days",
         location: "Marrakech ⇄ Sahara",
-        image: "/images/8.jpeg",
+        image: "images/camel_cover.jpeg",
         desc: "A quick but immersive escape to the desert. Experience the High Atlas Mountains, the Dades Valley, and a magical camel trek into the dunes of Merzouga for a night under the stars.",
         highlights: ["High Atlas", "Dades Valley", "Camel Trek", "Merzouga"],
         itinerary: [
