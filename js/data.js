@@ -6,7 +6,7 @@ const toursData = [
         price: "On Request",
         duration: "7 Days",
         location: "Marrakech ⇄ Sahara",
-        image: "/images/Sahara2.jpg", 
+        image: "/images/Sahara.jpg", 
         desc: "Immerse yourself in the history and culture of Morocco as you follow the trail of the Old Salt Caravan from Marrakech through the Valley of a Thousand Kasbahs to the great sand seas of the Sahara Desert.",
         highlights: ["Telouet Kasbah", "Ait Ben Haddou", "Merzouga Desert", "Todra Gorges"],
         itinerary: [
